@@ -55,7 +55,7 @@ class ContactEditModel:NSObject {
     }
     
     private func update(contactID:String) {
-        let contact = ContactsFetchProvider.shared.fetchContact(byID: contactID)
+        let contact = ContactsFetchProvider.shared.fetchContact(byID: contactID, inContext:DSCoreData.shared.readContext)
         if (contact != nil) {
             for field in iterateEnum(ContactEditFields.self) {
                 if let value = contact?.value(forKey: field.rawValue) {
@@ -115,7 +115,9 @@ class ContactEditModel:NSObject {
         return result
     }
     
-    // TODO: Zip code formatter
+    /**
+     Example of format ZIP code which depends on country. This example only for US zip formats.
+     */
     public static func formatZip(zipCode:String) -> String {
         var result = String(zipCode.characters.filter { "01234567890".characters.contains($0) })
         

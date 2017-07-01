@@ -123,7 +123,7 @@ class ContactsManageProvider:NSObject {
             ]);
         }
         
-        guard let contact = ContactsFetchProvider.shared.fetchContact(byID: contactID) else {
+        guard let contact = ContactsFetchProvider.shared.fetchContact(byID: contactID, inContext:DSCoreData.shared.writeContext) else {
             return ContactsManagerResult.init(contactID: nil, errors: [
                 "common": "Unkwnown error"
             ]);
@@ -147,13 +147,15 @@ class ContactsManageProvider:NSObject {
         let errors = contact.validate()
         if (errors.count == 0) {
             DSCoreData.shared.saveWriteContext(withCompletion: nil)
+        } else {
+            DSCoreData.shared.readContext.refresh(contact, mergeChanges: false)
         }
-        DSCoreData.shared.readContext.refresh(contact, mergeChanges: false)
+        
         return ContactsManagerResult.init(contactID: contactID, errors: errors);
     }
     
     public func delete(contactID:String) {
-        let contact = ContactsFetchProvider.shared.fetchContact(byID: contactID)
+        let contact = ContactsFetchProvider.shared.fetchContact(byID: contactID, inContext:DSCoreData.shared.writeContext)
         if (contact != nil) {
             contact?.mr_deleteEntity()
             DSCoreData.shared.saveWriteContext(withCompletion: nil)

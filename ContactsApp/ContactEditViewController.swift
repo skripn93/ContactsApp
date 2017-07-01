@@ -21,10 +21,11 @@ class EditField {
 
 fileprivate let kCellTextIdentifier = "TextCell"
 
-class ContactEditViewController:UIViewController {
+// Used UITableViewController to automatically move text cells above keyboard
+class ContactEditViewController:UITableViewController {
     public var contactID:String?
     var contactModel:ContactEditModel!
-    @IBOutlet var tableView: UITableView!
+
     let fields:[EditField] = [
         EditField.init(identifier: ContactEditFields.firstName, placeholder: "First name"),
         EditField.init(identifier: ContactEditFields.lastName, placeholder: "Last name"),
@@ -59,7 +60,7 @@ class ContactEditViewController:UIViewController {
     @IBAction func saveButtonDidTap(_ sender: Any) {
         let result = contactModel.save()
         
-        if (result.errors.count > 0) {
+        if (result.errors != nil && result.errors.count > 0) {
             var errorTexts = [String]()
             for (_, value) in result.errors {
                 errorTexts.append(value as! String)
@@ -77,19 +78,18 @@ class ContactEditViewController:UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
-}
-
-extension ContactEditViewController:UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    
+    // MARK: - UITableViewDataSource -
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.fields.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let field = fields[indexPath.row]
         let value:String = contactModel.value(forField: field.identifier) as! String
         
@@ -100,17 +100,17 @@ extension ContactEditViewController:UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView.init()
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
-}
-
-extension ContactEditViewController:UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    
+    // MARK: - UITableViewDelegate -
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ContactEditTextCell.height()
     }
 }

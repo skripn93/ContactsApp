@@ -49,8 +49,8 @@ class ContactsFetchProvider {
         return Contacts.mr_findFirst(byAttribute: "phoneNumber", withValue: phone, in: DSCoreData.shared.readContext)
     }
     
-    public func fetchContact(byID contactID:String) -> Contacts! {
-        return Contacts.mr_findFirst(byAttribute: "contactID", withValue: contactID, in: DSCoreData.shared.readContext)
+    public func fetchContact(byID contactID:String, inContext:NSManagedObjectContext) -> Contacts! {
+        return Contacts.mr_findFirst(byAttribute: "contactID", withValue: contactID, in: inContext)
     }
     
 }
