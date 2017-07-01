@@ -1,0 +1,111 @@
+[{
+"contactID": "",
+"firstName": "John",
+"lastName": "Doe",
+"phoneNumber": "9720522839",
+"city": "Tel Aviv",
+"state": "Israel",
+"zipCode": "30800-11",
+"streetAddress1": "Nirim Street",
+"streetAddress2": ""
+},
+{
+"contactID": "",
+"firstName": "Jonnie",
+"lastName": "Appren",
+"phoneNumber": "+100177192",
+"city": "Boston",
+"state": "USD",
+"zipCode": "00113-85",
+"streetAddress1": "a",
+"streetAddress2": "a"
+ },
+ {
+ "contactID": "",
+ "firstName": "Seth",
+ "lastName": "Bean",
+ "phoneNumber": "0800 1111",
+ "city": "Kalken",
+ "state": "Sao Tome and Principe",
+ "zipCode": "2094",
+ "streetAddress1": "1282 Eu Street",
+ "streetAddress2": ""
+ },
+ {
+ "contactID": "",
+ "firstName": "Brock",
+ "lastName": "Browning",
+ "phoneNumber": "056 2392 6415",
+ "city": "Essex",
+ "state": "Papua New Guinea",
+ "zipCode": "3356",
+ "streetAddress1": "831-5531 Nunc Rd.",
+ "streetAddress2": ""
+ },
+ {
+ "contactID": "",
+ "firstName": "Kyle",
+ "lastName": "Mcgee",
+ "phoneNumber": "(0119) 454 2405",
+ "city": "Greenlaw",
+ "state": "Russian Federation",
+ "zipCode": "676925",
+ "streetAddress1": "324-8382 Neque. Avenue",
+ "streetAddress2": ""
+ },
+ {
+ "contactID": "",
+ "firstName": "Hasad",
+ "lastName": "Glenn",
+ "phoneNumber": "(0116) 175 5518",
+ "city": "Reims",
+ "state": "Portugal",
+ "zipCode": "395581",
+ "streetAddress1": "381-7829 At Av.",
+ "streetAddress2": ""
+ },
+ {
+ "contactID": "",
+ "firstName": "Xenos",
+ "lastName": "Leon",
+ "phoneNumber": "(015425) 61253",
+ "city": "San Rafael",
+ "state": "Greece",
+ "zipCode": "19351",
+ "streetAddress1": "Ap #415-5320 Quisque Av.",
+ "streetAddress2": ""
+ },
+ {
+ "contactID": "",
+ "firstName": "Dustin",
+ "lastName": "Carroll",
+ "phoneNumber": "(0115) 816 8509",
+ "city": "Macon",
+ "state": "Greece",
+ "zipCode": "2728",
+ "streetAddress1": "3300 Nisi. Rd.",
+ "streetAddress2": ""
+ },
+ {
+ "contactID": "",
+ "firstName": "David",
+ "lastName": "Houston",
+ "phoneNumber": "0800 196429",
+ "city": "Lourdes",
+ "state": "Ireland",
+ "zipCode": "66268",
+ "streetAddress1": "P.O. Box 480, 5872 Dis Rd.",
+ "streetAddress2": ""
+ },
+ {
+ "contactID": "",
+ "firstName": "Erich",
+ "lastName": "Decker",
+ "phoneNumber": "056 4183 3613",
+ "city": "Pincher Creek",
+ "state": "Spain",
+ "zipCode": "9258",
+ "streetAddress1": "1903 Tempus St.",
+ "streetAddress2": ""
+ }
+]
